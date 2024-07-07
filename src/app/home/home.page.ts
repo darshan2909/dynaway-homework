@@ -14,6 +14,9 @@ export class HomePage {
 
   ionViewWillEnter(): void {
     this.assets = []
-    this.assetService.getAll().subscribe(assets => this.assets = assets)
+    this.assetService.getAll()
+    .subscribe((assets:any) => {
+      this.assets = assets.data
+    })
   }
 }
