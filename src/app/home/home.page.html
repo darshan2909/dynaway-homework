@@ -13,11 +13,15 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-grid class="list">
+  <ion-grid class="list" *ngIf="!isLoading; else loading">
     <ion-row>
       <ion-col *ngFor="let asset of assets" size-xl="4" size-md="6" size="12">
         <app-asset-card [asset]="asset"></app-asset-card>
       </ion-col>
     </ion-row>
   </ion-grid>
+
+  <ng-template #loading>
+    <ion-loading isOpen="true" message="Loading..."></ion-loading>
+  </ng-template>
 </ion-content>
